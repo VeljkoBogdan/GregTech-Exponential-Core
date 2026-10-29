@@ -1,6 +1,5 @@
 package com.illuminatijoe.gtecore.data.machines;
 
-import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.GTValues;
 import com.gregtechceu.gtceu.api.capability.recipe.FluidRecipeCapability;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
@@ -8,7 +7,6 @@ import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.SimpleGeneratorMachine;
 import com.gregtechceu.gtceu.api.registry.registrate.entry.MachineEntry;
-import com.gregtechceu.gtceu.common.data.machines.GTMachineUtils;
 import com.gregtechceu.gtceu.common.mui.GTSingleblockMachinePanels;
 
 import net.minecraft.network.chat.Component;
@@ -17,8 +15,7 @@ import com.illuminatijoe.gtecore.GTECore;
 import com.illuminatijoe.gtecore.data.GTECoreRecipeTypes;
 
 import static com.gregtechceu.gtceu.api.GTValues.*;
-import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.genericGeneratorTankSizeFunction;
-import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.registerTieredMachines;
+import static com.gregtechceu.gtceu.common.data.machines.GTMachineUtils.*;
 import static net.minecraft.util.CommonColors.GRAY;
 
 public class GTEMachines {
@@ -33,8 +30,11 @@ public class GTEMachines {
                     .recipeModifier(SimpleGeneratorMachine::recipeModifier, true)
                     .addOutputLimit(ItemRecipeCapability.CAP, 0)
                     .addOutputLimit(FluidRecipeCapability.CAP, 0)
-                    .workableTieredHullModel(GTCEu.id("block/machines/electric_furnace"))
+                    .simpleGeneratorModel(GTECore.id("block/generators/biomass"))
                     .tooltips(Component.literal("Satisfactory!").withColor(GRAY))
+                    .tooltips(workableTiered(tier, GTValues.V[tier], GTValues.V[tier] * 64,
+                            GTECoreRecipeTypes.BIOMASS_BURNING,
+                            genericGeneratorTankSizeFunction.applyAsInt(tier), false))
                     .register(),
             GTValues.tiersBetween(LV, HV));
 
@@ -48,8 +48,11 @@ public class GTEMachines {
                     .recipeModifier(SimpleGeneratorMachine::recipeModifier, true)
                     .addOutputLimit(ItemRecipeCapability.CAP, 0)
                     .addOutputLimit(FluidRecipeCapability.CAP, 0)
-                    .workableTieredHullModel(GTCEu.id("block/generators/boiler/coal"))
+                    .simpleGeneratorModel(GTECore.id("block/generators/coal"))
                     .tooltips(Component.literal("Nothing beats the old fashioned").withColor(GRAY))
+                    .tooltips(workableTiered(tier, GTValues.V[tier], GTValues.V[tier] * 64,
+                            GTECoreRecipeTypes.COAL_BURNING,
+                            genericGeneratorTankSizeFunction.applyAsInt(tier), false))
                     .register(),
             GTValues.tiersBetween(LV, HV));
 
