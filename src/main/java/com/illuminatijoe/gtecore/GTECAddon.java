@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.illuminatijoe.gtecore;
 
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
@@ -6,20 +6,21 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 
 import net.minecraft.data.recipes.RecipeOutput;
 
+import com.illuminatijoe.gtecore.data.recipe.misc.GTEFuelRecipes;
+
 @SuppressWarnings("unused")
-@GTAddon(value = ExampleMod.MOD_ID)
-public class ExampleGTAddon implements IGTAddon {
+@GTAddon(value = GTECore.MOD_ID)
+public class GTECAddon implements IGTAddon {
 
     @Override
     public GTRegistrate getRegistrate() {
-        return ExampleMod.EXAMPLE_REGISTRATE;
+        return GTECore.GTE_REGISTRATE;
     }
 
     @Override
-    public void gtInitComplete() {}
-
-    @Override
-    public void addRecipes(RecipeOutput provider) {}
+    public void addRecipes(RecipeOutput provider) {
+        GTEFuelRecipes.init(provider);
+    }
 
     // If you have custom ingredient types, uncomment this & change to match your capability.
     // KubeJS WILL REMOVE YOUR RECIPES IF THESE ARE NOT REGISTERED.

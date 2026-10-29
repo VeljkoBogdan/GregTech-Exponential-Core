@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[4,)"
 license = "${mod_license}"
 
 # This is a URL to e.g. your GitHub or CurseForge issues page.
@@ -9,7 +9,7 @@ license = "${mod_license}"
 
 [[mods]]
     modId = "${mod_id}"
-    version = "${version}"
+    version = "${mod_version}"
     displayName = "${mod_name}"
     displayURL = "${mod_url}"
     # This will be displayed as your mod's logo in the Mods panel.

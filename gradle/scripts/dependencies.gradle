@@ -16,7 +16,7 @@ dependencies {
 
     // EMI, Jade
     implementation(libs.emi)
-    runtimeOnly("curse.maven:jade-324717:5390389")
+    runtimeOnly("curse.maven:jade-324717:8591319")
 
 
     // lombok

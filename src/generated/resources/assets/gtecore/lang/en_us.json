@@ -1,0 +1,8 @@
+{
+  "block.gtecore.hv_biomass_burner": "§6Advanced Biomass Burner II§r",
+  "block.gtecore.hv_coal_generator": "§6Advanced Coal Generator II§r",
+  "block.gtecore.lv_biomass_burner": "Basic Biomass Burner §r",
+  "block.gtecore.lv_coal_generator": "Basic Coal Generator §r",
+  "block.gtecore.mv_biomass_burner": "§bAdvanced Biomass Burner §r",
+  "block.gtecore.mv_coal_generator": "§bAdvanced Coal Generator §r"
+}

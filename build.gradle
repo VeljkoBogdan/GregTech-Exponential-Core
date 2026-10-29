@@ -109,12 +109,15 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
     var neoVersion = libs.versions.neoForge.get()
     neoVersion = neoVersion.substring(0, neoVersion.lastIndexOf('.'))
     var replaceProperties = [
-            minecraft_version      : version_toml,
-            neo_version            : neoVersion,
-            mod_id                 : mod_id,
-            mod_name               : mod_name,
-            mod_license            : mod_license,
-            mod_version            : mod_version,
+            minecraft_version : libs.versions.minecraft.get(),
+            neo_version       : neoVersion,
+            gtceu_version     : libs.versions.gtceu.get(),
+            mod_id            : mod_id,
+            mod_name          : mod_name,
+            mod_license       : mod_license,
+            mod_version       : version_toml,
+            mod_url           : mod_url,
+            mod_author        : mod_author,
     ]
     inputs.properties replaceProperties
     expand replaceProperties
